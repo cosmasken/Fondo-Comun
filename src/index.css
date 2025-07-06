@@ -1,0 +1,218 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced TrustBlue Theme for Micro-Loan Pool */
+
+@layer base {
+  :root {
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 210 20% 99%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 210 20% 99%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep, calming blue for trust and reliability */
+    --primary: 215 85% 30%;
+    --primary-foreground: 210 25% 98%;
+
+    /* Light blue-gray for secondary elements */
+    --secondary: 215 20% 95%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Vibrant, approachable blue for accents */
+    --accent: 210 100% 65%;
+    --accent-foreground: 210 25% 98%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 25% 98%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 92%;
+    --ring: 215 85% 30%;
+
+    --radius: 12px;
+
+    /* Enhanced trust-focused gradients */
+    --trust-gradient: linear-gradient(135deg, hsl(215, 85%, 30%) 0%, hsl(210, 100%, 65%) 100%);
+    --trust-gradient-hover: linear-gradient(135deg, hsl(215, 85%, 25%) 0%, hsl(210, 100%, 60%) 100%);
+    --trust-gradient-subtle: linear-gradient(135deg, hsl(215, 40%, 95%) 0%, hsl(210, 30%, 98%) 100%);
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 210 25% 95%;
+
+    --card: 215 25% 10%;
+    --card-foreground: 210 25% 95%;
+
+    --popover: 215 25% 10%;
+    --popover-foreground: 210 25% 95%;
+
+    --primary: 210 100% 65%;
+    --primary-foreground: 215 25% 8%;
+
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 210 25% 90%;
+
+    --muted: 215 25% 12%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 215 85% 50%;
+    --accent-foreground: 210 25% 95%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 25% 95%;
+
+    --border: 215 25% 18%;
+    --input: 215 25% 15%;
+    --ring: 210 100% 65%;
+
+    --trust-gradient: linear-gradient(135deg, hsl(210, 100%, 65%) 0%, hsl(215, 85%, 50%) 100%);
+    --trust-gradient-hover: linear-gradient(135deg, hsl(210, 100%, 70%) 0%, hsl(215, 85%, 55%) 100%);
+    --trust-gradient-subtle: linear-gradient(135deg, hsl(215, 25%, 12%) 0%, hsl(210, 20%, 15%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+/* Enhanced Custom Components */
+@layer components {
+  .trust-gradient {
+    background: var(--trust-gradient);
+  }
+  
+  .trust-gradient-subtle {
+    background: var(--trust-gradient-subtle);
+  }
+  
+  .trust-gradient-hover:hover {
+    background: var(--trust-gradient-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trust-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:border-primary/20;
+  }
+  
+  .trust-card-featured {
+    @apply trust-card bg-gradient-to-br from-primary/5 via-card/90 to-accent/5 border-primary/30 shadow-lg;
+  }
+  
+  .trust-button {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground hover:from-primary/90 hover:to-accent/90 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .trust-button-outline {
+    @apply border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:scale-105 hover:shadow-md;
+  }
+  
+  .trust-input {
+    @apply bg-background/50 border-2 border-border/50 focus:border-primary rounded-xl px-4 py-3 transition-all duration-200 focus:shadow-lg focus:shadow-primary/10;
+  }
+
+  .trust-stat-card {
+    @apply bg-gradient-to-br from-white/90 to-primary/5 border border-primary/10 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-105;
+  }
+
+  .trust-nav-link {
+    @apply flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-primary/10 hover:text-primary;
+  }
+
+  .trust-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20;
+  }
+
+  .trust-header {
+    @apply bg-white/80 backdrop-blur-md border-b border-border/50;
+  }
+
+  .trust-section {
+    @apply space-y-8 py-12;
+  }
+
+  /* Animation utilities */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+/* Utility classes for font families */
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  .font-poppins {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  }
+}
